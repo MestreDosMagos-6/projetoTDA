@@ -1,0 +1,22 @@
+Componentes do grupo:
+
+-Joalysson da Silva Viana / 43740782
+-Aymee de Souza Silvestre / 43884024
+-Luis Davi Silva Mendes / 43868029
+-Lucas Santos de Santana / 43730035
+-Eduardo Augusto Alves de Farias / 43425879
+
+
+O projeto requer:
+Criar um jogo funcional em C, utilizando boas práticas de programação, organização em funções, tratamento de erros, e, opcionalmente, leitura e escrita de arquivos (como ranking).
+
+O projeto deve ser acompanhado por:
+
+Um relatório (no word) que contenha: introdução do projeto,  resultados (Com fotos) do programa, direcionamento para a pasta com o código final e um video de 2 a 5 minutos explicando e colocando o projeto em prática.
+
+Jogo da velha (3x3)
+Jogo da memória (4x4 ou 6x6)
+Jogo da Forca
+Damas
+Xadrex (Mais dificil)
+Ou um mini datacenter (locadora, supermercado etc...)
