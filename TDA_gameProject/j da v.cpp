@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// --- Protótipos ---
+//?
 char** criarTabuleiro(int tamanho);
 void liberarTabuleiro(char** tab, int tamanho);
 void inicializarTabuleiro(char** tab, int tamanho);
@@ -23,12 +23,12 @@ void mostrarRanking();
 void menu();
 
 int main() {
-    srand(time(0));
+    srand(time(0)); //?
     menu();
     return 0;
 }
 
-// --- Funções ---
+// Dividir em outro arquivo - 1
 
 char** criarTabuleiro(int tamanho) {
     char** tab = new char*[tamanho];
@@ -128,7 +128,9 @@ void jogadaComputador(char** tab, int tamanho, char jogador) {
     tab[linha][coluna] = jogador;
     cout << "Computador jogou na posicao " << linha*tamanho + coluna + 1 << "\n";
 }
+// Dividir em outro arquivo - 1
 
+// Dividir em outro arquivo - 2
 void limparTela() {
     system("cls"); // Windows
 }
@@ -153,7 +155,9 @@ void mostrarRanking(){
     cout << "==================\n";
     pausar();
 }
+// Dividir em outro arquivo - 2
 
+// Fica na main
 void menu(){
     int opcao;
     do{
@@ -213,3 +217,7 @@ void menu(){
 
     }while(opcao!=4);
 }
+
+//Melhorar sistema de salvamento no arquivo, problemas com o pedido de nome, 
+//Colocar nome vazio, ao escrever um texto o programa buga, 
+//faltou colocar os comentÃ¡rios na parte de cada cÃ³digo
