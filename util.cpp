@@ -1,0 +1,65 @@
+#include <iostream>
+#include <fstream>
+#include "util.hpp"
+#include <limits>
+#include <sstream>
+#include <vector>
+
+using namespace std;
+using std::string;
+
+void limparTela() {
+    system("cls"); // para Windows
+}
+
+void pausar() {
+    cout << "Pressione ENTER para continuar...";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+
+
+void salvarRanking(const string& nome, int pontos) {
+    // Lê o ranking existente
+    ifstream arqLeitura("ranking.txt");
+    string nomeArquivo;
+    int pontosArquivo;
+    bool encontrado = false;
+
+    vector<pair<string, int>> ranking;
+
+    // Carrega todos os registros
+    while (arqLeitura >> nomeArquivo >> pontosArquivo) {
+        if (nomeArquivo == nome) {
+            pontosArquivo += pontos; // atualiza a pontuação
+            encontrado = true;
+        }
+        ranking.push_back({nomeArquivo, pontosArquivo});
+    }
+    arqLeitura.close();
+
+    // Se não achou o nome, cria um novo registro
+    if (!encontrado) {
+        ranking.push_back({nome, pontos});
+    }
+
+    // Reescreve o arquivo com os valores atualizados
+    ofstream arqEscrita("ranking.txt", ios::trunc);
+    for (auto& entrada : ranking) {
+        arqEscrita << entrada.first << " " << entrada.second << "\n";
+    }
+    arqEscrita.close();
+}
+
+void mostrarRanking() {
+    ifstream arq("ranking.txt");
+    if (!arq) {
+        cout << "Nenhum ranking salvo ainda.\n";
+        return;
+    }
+    string linha;
+    cout << "\n===== RANKING =====\n";
+    while (getline(arq, linha))
+        cout << linha << "\n";
+    cout << "===================\n";
+    pausar();
+}
