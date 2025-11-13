@@ -15,7 +15,7 @@ void menu()
     int opcao = 0;
 
     while (true)
-    { // menu roda até escolher sair
+    {
         limparTela();
 
         cout << "===== MENU =====\n";
@@ -25,7 +25,6 @@ void menu()
         cout << "4. Sair\n";
         cout << "Escolha uma opcao: ";
 
-        // Tratamento de erro para TEXTO digitado
         if (!(cin >> opcao))
         {
             cin.clear();
@@ -35,7 +34,6 @@ void menu()
             continue;
         }
 
-        // Limpa o ENTER deixado no buffer
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         switch (opcao)
@@ -63,7 +61,7 @@ void menu()
 
         case 4:
             cout << "Saindo...\n";
-            return; // ENCERRA o menu corretamente
+            return; 
 
         default:
             cout << "Opcao invalida! Digite algo entre 1 e 4.\n";

@@ -22,7 +22,6 @@ void inicializarTabuleiro(char **tab, int tamanho)
 
     if (tamanho == 3)
     {
-        // Usa números no 3x3
         char pos = '1';
         for (int i = 0; i < tamanho; i++)
             for (int j = 0; j < tamanho; j++)
@@ -30,7 +29,6 @@ void inicializarTabuleiro(char **tab, int tamanho)
     }
     else
     {
-        // Usa letras em 4x4, 5x5...
         char letra = 'A';
         for (int i = 0; i < tamanho; i++)
         {

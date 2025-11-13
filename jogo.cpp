@@ -19,7 +19,6 @@ void jogadaJogador(char **tab, int tamanho, char jogador)
         cin >> entrada;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-        // Converte para maiuscula caso seja letra
         if (entrada.size() == 1 && isalpha(entrada[0]))
         {
             entrada[0] = toupper(entrada[0]);
@@ -27,14 +26,13 @@ void jogadaJogador(char **tab, int tamanho, char jogador)
             char letra = entrada[0];
             bool achou = false;
 
-            // procura no tabuleiro a letra
             for (int i = 0; i < tamanho; i++)
             {
                 for (int j = 0; j < tamanho; j++)
                 {
                     if (tab[i][j] == letra)
                     {
-                        // verifica se está livre
+
                         tab[i][j] = jogador;
                         achou = true;
                         valido = true;
@@ -52,7 +50,6 @@ void jogadaJogador(char **tab, int tamanho, char jogador)
         }
         else
         {
-            // TRATAR COMO NUMERO (funciona para 3x3)
             int escolha = 0;
 
             try
@@ -104,9 +101,6 @@ void iniciarJogo()
 {
     srand(time(0));
 
-    // ==============================
-    //   ESCOLHER TAMANHO DO TABULEIRO
-    // ==============================
     int tamanho = 3;
     while (true)
     {
@@ -127,9 +121,6 @@ void iniciarJogo()
     char **tab = criarTabuleiro(tamanho);
     inicializarTabuleiro(tab, tamanho);
 
-    // ==============================
-    //   MODO DE JOGO
-    // ==============================
     int modo;
     while (true)
     {
@@ -147,9 +138,6 @@ void iniciarJogo()
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 
-    // ==============================
-    //   NOMES DOS JOGADORES
-    // ==============================
     string jogador1, jogador2;
 
     cout << "Digite o nome do Jogador X: ";
@@ -165,9 +153,6 @@ void iniciarJogo()
         jogador2 = "Computador";
     }
 
-    // ==============================
-    //       LOOP PRINCIPAL DO JOGO
-    // ==============================
     char jogadorAtual = 'X';
     bool fim = false;
 
@@ -177,16 +162,14 @@ void iniciarJogo()
 
         if (modo == 1)
         {
-            // PvP: ambos humanos
             jogadaJogador(tab, tamanho, jogadorAtual);
         }
         else
         {
-            // PvC
             if (jogadorAtual == 'X')
-                jogadaJogador(tab, tamanho, 'X'); // humano
+                jogadaJogador(tab, tamanho, 'X');
             else
-                jogadaComputador(tab, tamanho, 'O'); // computador sempre O
+                jogadaComputador(tab, tamanho, 'O');
         }
 
         if (verificarVitoria(tab, tamanho, jogadorAtual))
