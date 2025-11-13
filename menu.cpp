@@ -56,7 +56,7 @@ void menu()
             cout << "Joalysson Viana\n";
             cout << "Luiz David\n";
             cout << "Lucas Santana\n";
-            cout << "Miguel\n";
+            cout << "Miguel Luis\n";
             cout << "=====================\n";
             pausar();
             break;
